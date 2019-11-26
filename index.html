@@ -12,7 +12,34 @@
 			<h1>Pembalik Angka</h1>
 			<hr>
 		</center>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="">Data</label>
+					<textarea name="" id="" cols="30" rows="10" class="form-control data masuk"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="">Jumlah Pilihan Jawaban</label>
+					<input type="tel" name="" id="" class="form-control pilihan-jawaban masuk">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="">Hasil</label>
+					<textarea name="" id="" cols="30" rows="13" style="height: 288px;" class="form-control hasil" readonly=""></textarea>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script src="vendor/jquery.min.js"></script>
+	<script>
+		$('.masuk').on('keyup', function(){
+			pengurang = Number($('.pilihan-jawaban').val()) + 1
+			hasil = $('.data').val().replace(/(\d)/g, function(x){
+				return pengurang - Number(x)
+			})
+			$('.hasil').val(hasil)
+		})
+	</script>
 </body>
 </html>
